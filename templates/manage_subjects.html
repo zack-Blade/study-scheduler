@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Manage Subjects{% endblock %}
+{% block content %}
+    <h1>Manage Subjects</h1>
+    <div class="card">
+        {% if subjects %}
+            {% for subject in subjects %}
+                <div class="topic-block" style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong style="margin: 0;">{{ subject }}</strong>
+                    <form method="POST" action="/delete-subject" style="display:inline;" onsubmit="return confirm('Delete {{ subject }} and all its topics? This cannot be undone.');">
+                        <input type="hidden" name="subject_name" value="{{ subject }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No subjects saved yet.</p>
+        {% endif %}
+    </div>
+{% endblock %}

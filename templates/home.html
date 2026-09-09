@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <h1>Home</h1>
+
+    <div class="sep-hero">
+        <div class="sep-center">SEP</div>
+        <a href="{{ url_for('upload_page') }}" class="sep-orbit sep-orbit-1">Upload New Syllabus</a>
+        <a href="{{ url_for('manage') }}" class="sep-orbit sep-orbit-2">Manage Subjects</a>
+        <a href="{{ url_for('schedule') }}" class="sep-orbit sep-orbit-3">View My Schedule</a>
+    </div>
+
+    <div class="info-row">
+        <div class="info-item">
+            <strong>{{ subjects|length }}</strong>
+            <p>Subjects tracked</p>
+        </div>
+        <div class="info-item">
+            <strong>{{ pending_topics }}</strong>
+            <p>Topics pending</p>
+        </div>
+        <div class="info-item">
+            <strong>{{ completed_topics }}</strong>
+            <p>Topics completed</p>
+        </div>
+    </div>
+{% endblock %}

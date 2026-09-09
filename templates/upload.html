@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Smart Exam-Prep Scheduler{% endblock %}
+{% block content %}
+    <h1>Upload Your Syllabus</h1>
+    <div class="card">
+        <form method="POST" enctype="multipart/form-data">
+            <label>Subject name:</label>
+            <input type="text" name="subject_name" placeholder="e.g. OS" required>
+
+            <label>Syllabus PDF:</label>
+            <input type="file" name="syllabus" accept=".pdf" required>
+
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <div class="info-row">
+        <div class="info-item">
+            <strong>1. Upload</strong>
+            <p>Your syllabus PDF, we'll extract the topics.</p>
+        </div>
+        <div class="info-item">
+            <strong>2. Rate</strong>
+            <p>Tell us your confidence per topic.</p>
+        </div>
+        <div class="info-item">
+            <strong>3. Study</strong>
+            <p>Get a schedule that adapts as you go.</p>
+        </div>
+    </div>
+{% endblock %}

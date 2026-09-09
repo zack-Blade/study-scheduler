@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Enter Topics Manually{% endblock %}
+{% block content %}
+    <h1>We couldn't read topics from your PDF automatically</h1>
+    <div class="card">
+        <p>Please type your topics below, one per line.</p>
+        <form method="POST" action="/manual-topics">
+            <input type="hidden" name="subject_name" value="{{ subject_name }}">
+            <textarea name="topic_list" rows="10" placeholder="Array Operations&#10;Linked Lists&#10;Sorting Algorithms" required></textarea><br><br>
+            <button type="submit">Continue</button>
+        </form>
+    </div>
+{% endblock %}

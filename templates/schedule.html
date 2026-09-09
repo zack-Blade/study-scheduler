@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Your Study Schedule{% endblock %}
+{% block content %}
+    <h1>Today's Study Schedule</h1>
+    <div class="card">
+        {% if schedule %}
+        <ul>
+            {% for entry in schedule %}
+                {% set topic = entry.topic %}
+                <li style="animation-delay: {{ loop.index0 * 0.08 }}s;">
+                    <div>
+                        <span style="color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">{{ topic.subject }}</span><br>
+                        {{ topic.name }} — {{ entry.hours }} hrs (score: {{ "%.2f"|format(entry.score) }})
+                    </div>
+
+                    <form method="POST" action="/edit-topic" style="display:inline;">
+                        <input type="hidden" name="topic_id" value="{{ topic.id }}">
+                        Weight: <input type="number" name="weight" min="1" max="5" value="{{ topic.weight }}" style="width:50px;">
+                        Weakness: <input type="number" name="weakness" min="1" max="5" value="{{ topic.weakness }}" style="width:50px;">
+                        <button type="submit">Save</button>
+                    </form>
+
+                    <form method="POST" action="/complete" style="display:inline;">
+                        <input type="hidden" name="topic_id" value="{{ topic.id }}">
+                        <button type="submit">Mark Complete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No topics yet. <a href="{{ url_for('upload_page') }}">Add a subject</a> to generate your first schedule.</p>
+        {% endif %}
+    </div>
+{% endblock %}

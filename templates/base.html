@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Smart Exam-Prep Scheduler{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-header">
+        <strong>Smart Exam-Prep Scheduler</strong>
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('schedule') }}" style="float: right; color: #6b7280; text-decoration: none; font-size: 14px; margin-left: 20px;">My Schedule</a>
+            <a href="{{ url_for('manage') }}" style="float: right; color: #6b7280; text-decoration: none; font-size: 14px;">Manage Subjects</a>
+            <a href="{{ url_for('upload_page') }}" style="float: right; color: #6b7280; text-decoration: none; font-size: 14px; margin-right: 20px;">Add Subject</a>
+            <a href="{{ url_for('home_dashboard') }}" style="float: right; color: #6b7280; text-decoration: none; font-size: 14px; margin-right: 20px;">Home</a>
+            {% if session.get('is_admin') %}
+                <a href="{{ url_for('admin_dashboard') }}" style="float: right; color: #6b7280; text-decoration: none; font-size: 14px; margin-right: 20px;">Admin</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}" style="float: right; color: #6b7280; text-decoration: none; font-size: 14px; margin-right: 20px;">Logout ({{ session.get('username') }})</a>
+        {% endif %}
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == "error" %}
+                    <p style="background: #fef2f2; border: 1px solid #ef4444; border-radius: 8px; padding: 10px 14px; color: #991b1b; max-width: 700px; margin: 0 auto 12px;">{{ message }}</p>
+                {% else %}
+                    <p style="background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; padding: 10px 14px; color: #065f46; max-width: 700px; margin: 0 auto 12px;">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,350 @@
+~~~* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #ffffff;
+    color: #374151;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #111111;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 24px;~
+}
+
+.card {
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: 600;
+    color: #111111;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #111111;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-bottom: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #111111;
+}
+
+button {
+    background-color: #111111;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.15s ease;
+}
+
+button:hover {
+    background-color: #242424;
+}
+
+button:active {
+    background-color: #242424;
+}
+
+.topic-block {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+}
+
+.topic-block strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #111111;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.topic-block input[type="number"] {
+    width: 70px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    margin: 10px 0;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-left: 4px solid #e5e7eb;
+}
+
+li:nth-child(1) { border-left-color: #fb923c; }
+li:nth-child(2) { border-left-color: #ec4899; }
+li:nth-child(3) { border-left-color: #8b5cf6; }
+
+li button {
+    background-color: #ffffff;
+    color: #111111;
+    border: 1px solid #e5e7eb;
+    padding: 8px 14px;
+    height: auto;
+}
+
+li button:hover {
+    background-color: #f5f5f5;
+}
+
+@keyframes slideDownFade {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRightFade {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.landing-title {
+    animation: slideDownFade 1.2s ease-out forwards;
+}
+
+.landing-context {
+    animation: slideRightFade 1.2s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.landing-button {
+    animation: slideUpFade 1.2s ease-out 0.9s forwards;
+    opacity: 0;
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: #111111;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+.app-header {
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 30px;
+    font-size: 15px;
+    color: #6b7280;
+}
+
+.info-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.info-item {
+    flex: 1;
+    text-align: center;
+    padding: 16px;
+}
+
+.info-item strong {
+    display: block;
+    color: #111111;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.info-item p {
+    color: #6b7280;
+    font-size: 13px;
+    margin: 0;
+}
+
+.sep-hero {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    margin: 40px auto;
+}
+
+.sep-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin: -60px 0 0 -60px;
+    background: #111111;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    animation: sepSpiralIn 0.9s ease-out forwards;
+    transform: scale(0) rotate(-270deg);
+    opacity: 0;
+}
+
+@keyframes sepSpiralIn {
+    from { transform: scale(0) rotate(-270deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.sep-orbit {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #111111;
+    text-decoration: none;
+    padding: 8px;
+    opacity: 0;
+    transform: scale(0);
+    animation: sepPop 0.5s ease-out forwards;
+}
+
+.sep-orbit:hover {
+    background: #f5f5f5;
+}
+
+.sep-orbit-1 {
+    top: 0;
+    left: 50%;
+    margin-left: -55px;
+    animation-delay: 0.9s;
+}
+
+.sep-orbit-2 {
+    bottom: 30px;
+    left: 0;
+    animation-delay: 1.1s;
+}
+
+.sep-orbit-3 {
+    bottom: 30px;
+    right: 0;
+    animation-delay: 1.3s;
+}
+
+@keyframes sepPop {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 700px) {
+    body {
+        margin: 16px auto;
+        padding: 0 12px;
+    }
+
+    .app-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 14px;
+    }
+
+    .app-header a {
+        float: none !important;
+        margin: 0 !important;
+    }
+
+    .sep-hero {
+        width: 260px;
+        height: 260px;
+    }
+
+    .sep-center {
+        width: 90px;
+        height: 90px;
+        margin: -45px 0 0 -45px;
+        font-size: 22px;
+    }
+
+    .sep-orbit {
+        width: 85px;
+        height: 85px;
+        font-size: 11px;
+    }
+
+    .sep-orbit-1 {
+        margin-left: -42px;
+    }
+}

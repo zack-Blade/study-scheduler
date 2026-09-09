@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Smart Exam-Prep Scheduler{% endblock %}
+{% block content %}
+    <div class="particles" id="particles"></div>
+    <h1 class="landing-title">Smart Exam-Prep Scheduler</h1>
+    <div class="card">
+        <p class="landing-context">Upload your syllabus. We'll figure out what to study today, and why — based on how much a topic matters, how weak you are in it, and how close your exam is.</p>
+
+        <p class="landing-context" style="font-family: monospace; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px; margin: 20px 0;">
+            Priority Score = (Weight × Weakness × Pace) ÷ Days Until Exam
+        </p>
+
+        <p class="landing-context">No black box. Every number in that formula is something you control.</p>
+
+        <a href="{{ url_for('home_dashboard') }}" class="landing-button" style="display: inline-block;">
+        <button type="button">Get Started</button>
+        </a>
+    </div>
+    <script>
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 15; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            const size = Math.random() * 8 + 4;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            p.style.animationDelay = Math.random() * 10 + 's';
+            container.appendChild(p);
+        }
+    </script>
+{% endblock %}

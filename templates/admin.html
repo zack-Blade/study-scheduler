@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+    <h1>Admin Dashboard</h1>
+    <div class="card">
+        {% for user in user_stats %}
+            <div class="topic-block">
+                <strong>{{ user.username }}{% if user.is_admin %} (admin){% endif %}</strong>
+                <p style="margin: 0;">{{ user.subject_count }} subject(s) tracked</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
